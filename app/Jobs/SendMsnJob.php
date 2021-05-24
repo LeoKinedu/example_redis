@@ -13,14 +13,16 @@ class SendMsnJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $title = "";
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($title)
     {
-        //
+        $this->title = $title;
+        $this->onConnection('redis_example');
     }
 
     /**
@@ -30,6 +32,13 @@ class SendMsnJob implements ShouldQueue
      */
     public function handle()
     {
-        //
+        // throw new \Exception("Error Processing Request", 1);
+        $this->fail();
+
+    }
+
+    public function failed(\Exception $exception = null)
+    {
+        \Log::error("Método failed");
     }
 }
