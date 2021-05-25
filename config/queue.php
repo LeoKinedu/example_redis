@@ -74,7 +74,7 @@ return [
         'redis_example' => [
             'driver' => 'redis',
             'connection' => 'queuedb2',
-            'queue' => env('REDIS_QUEUE', 'default'),
+            'queue' => env('REDIS_QUEUE_2', 'default'),
             'retry_after' => 90,
             'block_for' => null,
             'after_commit' => false,
@@ -98,5 +98,4 @@ return [
         'database' => env('DB_CONNECTION', 'mysql'),
         'table' => 'failed_jobs',
     ],
-
 ];
