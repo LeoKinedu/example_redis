@@ -1,6 +1,5 @@
 <?php
 
-use App\Providers\QueueServiceOverrideProvider;
 
 return [
 
@@ -156,7 +155,7 @@ return [
         Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
-        QueueServiceOverrideProvider::class,
+        App\Providers\CustomProviders\QueueServiceOverrideProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,

@@ -98,4 +98,8 @@ return [
         'database' => env('DB_CONNECTION', 'mysql'),
         'table' => 'failed_jobs',
     ],
+
+    'namespacefailedjobnosave' =>[
+        'App\Jobs\SendMsnJob  '
+    ]
 ];

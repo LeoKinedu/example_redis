@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Providers;
+namespace App\Providers\CustomProviders;
 
 use Illuminate\Queue\Failed\DatabaseUuidFailedJobProvider;
 use Illuminate\Queue\Failed\FailedJobProviderInterface;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProviderOverride extends DatabaseUuidFailedJobProvider
+class CustomDatabaseUuidFailedJobProvider extends DatabaseUuidFailedJobProvider
 {
 
     public function __construct($resolver, $database, $table)

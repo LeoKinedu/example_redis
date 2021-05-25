@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Providers\CustomProviders;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -16,7 +16,7 @@ class QueueServiceOverrideProvider extends ServiceProvider
         $this->app->singleton('queue.failer', function ($app) {
             $config = $app['config']['queue.failed'];
 
-            return new AppServiceProviderOverride(
+            return new CustomDatabaseUuidFailedJobProvider(
                 $this->app['db'], $config['database'], $config['table']
             );
         });
