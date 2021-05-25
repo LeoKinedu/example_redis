@@ -9,14 +9,15 @@ class AppServiceProviderOverride implements FailedJobProviderInterface
 {
 
     public function log($connection, $queue, $payload, $exception)
-    {
-        \Log::error("AppServiceProviderOverride: ". print_r((json_decode($payload)->displayName),1));
-        $objPayload = json_decode($payload);
+    {$objPayload = json_decode($payload);
 
         if($objPayload->displayName == "App\Jobs\SendMsnJob"){
-            \Log::error("--SendMsnJob--");
+            \Log::error("--Logic Failed : {$objPayload->displayName}--");
+            return 0;
         }
         return 0;
+
+
     }
 
     /**

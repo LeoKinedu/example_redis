@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\JobExample2;
 use App\Jobs\SendMsnJob;
 use Illuminate\Console\Command;
 
@@ -38,7 +39,8 @@ class CommandRunJob extends Command
      */
     public function handle()
     {
-        SendMsnJob::dispatch("titulo del job");
+        SendMsnJob::dispatch("Job 1");
+        JobExample2::dispatch("Job 2");
     }
 
 }

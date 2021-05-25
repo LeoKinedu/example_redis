@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class SendMsnJob implements ShouldQueue
+class JobExample2 implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -21,8 +21,8 @@ class SendMsnJob implements ShouldQueue
      */
     public function __construct($title)
     {
-        $this->title = $title;
         $this->onConnection('redis_example');
+        $this->title = $title;
     }
 
     /**
@@ -32,13 +32,12 @@ class SendMsnJob implements ShouldQueue
      */
     public function handle()
     {
-        // throw new \Exception("Error Processing Request", 1);
         $this->fail();
 
     }
 
     public function failed(\Exception $exception = null)
     {
-        \Log::error("Método failed SendMsnJob ");
+        \Log::error("Método failed JobExample 2 ");
     }
 }
