@@ -18,7 +18,11 @@ class CustomDatabaseUuidFailedJobProvider extends DatabaseUuidFailedJobProvider
     {
         $objPayload = json_decode($payload);
 
-        if ($objPayload->displayName == "App\Jobs\SendMsnJob") {
+        $jobClass = collect(config('queue.ignore_jobs', []))->first(function($value, $key) use ($objPayload){
+            return $value === $objPayload->displayName;
+        });
+
+        if ($jobClass) {
             \Log::error("--Logic Failed : {$objPayload->displayName}--");
             return 0;
         }

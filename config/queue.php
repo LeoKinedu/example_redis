@@ -99,7 +99,7 @@ return [
         'table' => 'failed_jobs',
     ],
 
-    'namespacefailedjobnosave' =>[
-        'App\Jobs\SendMsnJob  '
+    'ignore_jobs' =>[
+        App\Jobs\SendMsnJob::class
     ]
 ];
