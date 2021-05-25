@@ -17,7 +17,7 @@ class QueueServiceOverrideProvider extends ServiceProvider
             $config = $app['config']['queue.failed'];
 
             return new AppServiceProviderOverride(
-                isset($config['path']) ? $config['path'] : storage_path('failed_jobs')
+                $this->app['db'], $config['database'], $config['table']
             );
         });
     }
