@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\QueueServiceOverrideProvider;
+
 return [
 
     /*
@@ -137,8 +139,8 @@ return [
     'providers' => [
 
         /*
-         * Laravel Framework Service Providers...
-         */
+        * Laravel Framework Service Providers...
+        */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -154,6 +156,7 @@ return [
         Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
+        QueueServiceOverrideProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
